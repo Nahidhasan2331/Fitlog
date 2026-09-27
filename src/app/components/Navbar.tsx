@@ -16,7 +16,6 @@ const Navbar = () => {
   return (
     <header className="w-full border-b border-[#34373D] bg-[#000000]">
       <nav className="flex h-[80px] w-full items-center justify-between px-4 sm:px-6 md:px-10 lg:px-24">
-        {/* LEFT - Logo */}
         <div className="flex shrink-0 items-center justify-start">
           <Link href="/" className="flex items-center gap-2 sm:gap-3">
             <Image
@@ -34,7 +33,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* CENTER - Desktop/Tablet Navigation */}
         <div className="hidden items-center justify-center gap-3 md:flex">
           <Link
             href="/"
@@ -59,9 +57,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* RIGHT - Plan & Saved */}
         <div className="flex shrink-0 items-center justify-end gap-3 sm:gap-5 lg:gap-7">
-          {/* Plan */}
           <Link
             href="/my-plan"
             className="flex items-center gap-1.5 text-[11px] font-medium text-white sm:gap-2 sm:text-[14px]"
@@ -73,7 +69,6 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Saved */}
           <Link
             href="/my-plan"
             className="flex items-center gap-1.5 text-[11px] font-medium text-[#8D8E94] sm:gap-2 sm:text-[14px]"

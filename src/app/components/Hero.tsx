@@ -5,7 +5,6 @@ const Hero = () => {
   return (
     <section className="m-6 rounded-xl border border-[#34373D] bg-[#111318] md:m-6 lg:m-24">
       <div className="grid min-h-[380px] grid-cols-1 items-center px-8 py-12 md:px-12 md:grid-cols-2 lg:px-16">
-        {/* Left */}
         <div>
           <p className="mb-6 text-[11px] font-bold uppercase tracking-wide text-[#CCFF00]">
             Workout Library
@@ -30,7 +29,6 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Right */}
         <div className="flex justify-center md:justify-end md:pr-4 lg:pr-16">
           <Image
             src="/banner.png"

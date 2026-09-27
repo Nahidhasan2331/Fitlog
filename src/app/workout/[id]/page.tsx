@@ -10,7 +10,6 @@ interface WorkoutDetailsProps {
   }>;
 }
 
-// Fetch single workout
 async function getWorkout(id: string): Promise<Workout | null> {
   try {
     const response = await fetch(
@@ -44,7 +43,6 @@ export default async function WorkoutDetailsPage({
   return (
     <main className="mx-4 py-10 sm:mx-6 lg:mx-10">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
-        {/* LEFT SIDE - WORKOUT IMAGE */}
         <div className="relative min-h-[420px] overflow-hidden rounded-xl sm:min-h-[520px] lg:min-h-[680px]">
           <Image
             src={workout.image}
@@ -55,19 +53,15 @@ export default async function WorkoutDetailsPage({
           />
         </div>
 
-        {/* RIGHT SIDE - WORKOUT DETAILS */}
         <div className="w-full">
-          {/* Workout Name */}
           <h1 className="text-[38px] font-bold uppercase leading-none text-white md:text-[42px]">
             {workout.name}
           </h1>
 
-          {/* Description */}
           <p className="mt-4 max-w-[600px] text-[16px] font-light leading-[1.55] text-[#9A9DA5]">
             {workout.description}
           </p>
 
-          {/* Muscle Groups */}
           <div className="mt-5 flex flex-wrap gap-3">
             {workout.muscleGroups.map((muscle) => (
               <span
@@ -79,7 +73,6 @@ export default async function WorkoutDetailsPage({
             ))}
           </div>
 
-          {/* Workout Information */}
           <div className="mt-7 overflow-hidden rounded-[14px] border border-[#292D35] bg-[#151820]">
             <DetailRow label="Equipment" value={workout.equipment} />
 
@@ -99,7 +92,6 @@ export default async function WorkoutDetailsPage({
             <DetailRow label="Rating" value={workout.rating} last />
           </div>
 
-          {/* Instructions */}
           <div className="mt-8">
             <h2 className="text-[18px] font-bold uppercase text-white">
               Instructions
@@ -121,7 +113,6 @@ export default async function WorkoutDetailsPage({
             </ol>
           </div>
 
-          {/* Add to Plan / Save Buttons */}
           <WorkoutActions workout={workout} />
         </div>
       </div>
@@ -129,7 +120,6 @@ export default async function WorkoutDetailsPage({
   );
 }
 
-// Detail table row
 function DetailRow({
   label,
   value,

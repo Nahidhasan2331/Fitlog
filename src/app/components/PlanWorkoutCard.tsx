@@ -29,9 +29,7 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-[#252932] bg-[#151820] p-3 sm:flex-row sm:items-center sm:justify-between">
-      {/* LEFT SIDE */}
       <div className="flex min-w-0 items-center gap-4">
-        {/* Image */}
         <div className="relative h-[70px] w-[105px] shrink-0 overflow-hidden rounded-lg">
           <Image
             src={workout.image}
@@ -41,7 +39,6 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
           />
         </div>
 
-        {/* Workout Information */}
         <div className="min-w-0">
           <h3 className="text-[15px] font-bold uppercase text-white">
             {workout.name}
@@ -49,7 +46,6 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
 
           <p className="mt-1 text-[11px] text-[#8D9199]">{workout.equipment}</p>
 
-          {/* Stats */}
           <div className="mt-2 flex flex-wrap items-center gap-3 text-[10px] text-[#A0A3AA]">
             <span className="flex items-center gap-1">
               <Clock3 size={11} className="text-[#CCFF00]" />
@@ -69,9 +65,7 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="flex shrink-0 flex-wrap items-center gap-3">
-        {/* View Details */}
         <Link
           href={`/workout/${workout.id}`}
           className="rounded-full border border-[#353A44] px-3 py-2 text-[10px] text-[#D5D7DB] transition hover:bg-[#20242B] sm:px-4 sm:text-[11px]"
@@ -79,7 +73,6 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
           View Details
         </Link>
 
-        {/* Mark Done - only Today's Plan */}
         {type === "plan" && (
           <button
             type="button"
@@ -91,7 +84,6 @@ const PlanWorkoutCard = ({ workout, type }: PlanWorkoutCardProps) => {
           </button>
         )}
 
-        {/* Remove */}
         <button
           type="button"
           onClick={handleRemove}

@@ -14,11 +14,9 @@ interface WorkoutActionsProps {
 const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
   const { plan, addToPlan, saveWorkout, isInPlan, isSaved } = useFitLog();
 
-  // Check if workout is already added/saved
   const planned = isInPlan(workout.id);
   const saved = isSaved(workout.id);
 
-  // Add workout to today's plan
   const handleAddToPlan = () => {
     if (planned) {
       toast.info("Workout is already in today's plan.");
@@ -35,7 +33,6 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
     toast.success(`${workout.name} added to today's plan.`);
   };
 
-  // Save workout for later
   const handleSaveWorkout = () => {
     if (saved) {
       toast.info("Workout is already saved.");
@@ -49,7 +46,6 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
 
   return (
     <div className="mt-10 flex flex-wrap gap-4">
-      {/* Add to Today's Plan */}
       <button
         type="button"
         onClick={handleAddToPlan}
@@ -65,7 +61,6 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
         {planned ? "Added to plan" : "Add to today's plan"}
       </button>
 
-      {/* Save for Later */}
       <button
         type="button"
         onClick={handleSaveWorkout}

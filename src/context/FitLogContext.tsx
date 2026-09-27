@@ -63,12 +63,10 @@ export function FitLogProvider({ children }: { children: ReactNode }) {
 
   const addToPlan = (workout: Workout) => {
     setPlan((current) => {
-      // Don't add duplicate workouts
       if (current.some((item) => item.id === workout.id)) {
         return current;
       }
 
-      // Maximum 5 workouts
       if (current.length >= 5) {
         return current;
       }

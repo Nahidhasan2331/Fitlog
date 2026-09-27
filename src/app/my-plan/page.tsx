@@ -17,10 +17,6 @@ export default function MyPlanPage() {
 
   const [sortBy, setSortBy] = useState<SortType>("duration");
 
-  // ---------------------------
-  // TODAY'S PLAN TOTALS
-  // ---------------------------
-
   const totalMinutes = plan.reduce(
     (total, workout) => total + workout.duration,
     0,
@@ -31,15 +27,7 @@ export default function MyPlanPage() {
     0,
   );
 
-  // ---------------------------
-  // SELECT CURRENT TAB
-  // ---------------------------
-
   const selectedWorkouts = activeTab === "plan" ? plan : saved;
-
-  // ---------------------------
-  // SORT WORKOUTS
-  // ---------------------------
 
   const sortedWorkouts = useMemo(() => {
     const workouts = [...selectedWorkouts];
@@ -65,10 +53,6 @@ export default function MyPlanPage() {
 
   return (
     <main className="mx-auto w-full max-w-[1280px] px-4 py-10 sm:px-6">
-      {/* =========================
-          PAGE HEADING
-      ========================== */}
-
       <div>
         <h1 className="text-[30px] font-bold uppercase leading-none text-white">
           My Plan
@@ -79,10 +63,6 @@ export default function MyPlanPage() {
         </p>
       </div>
 
-      {/* =========================
-          SUMMARY / METRICS
-      ========================== */}
-
       <div className="mt-7 grid grid-cols-1 overflow-hidden rounded-xl border border-[#282C34] bg-[#151820] sm:grid-cols-3">
         <Metric label="Exercises" value={plan.length} accent />
 
@@ -91,12 +71,7 @@ export default function MyPlanPage() {
         <Metric label="Calories" value={totalCalories} last />
       </div>
 
-      {/* =========================
-          TABS + SORT
-      ========================== */}
-
       <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        {/* Tabs */}
         <div className="inline-flex w-fit rounded-lg border border-[#292D35] bg-[#111318] p-1">
           <button
             type="button"
@@ -123,7 +98,6 @@ export default function MyPlanPage() {
           </button>
         </div>
 
-        {/* Sort */}
         <div className="flex items-center gap-3">
           <span className="text-[10px] text-[#737780]">Sort By</span>
 
@@ -141,10 +115,6 @@ export default function MyPlanPage() {
         </div>
       </div>
 
-      {/* =========================
-          WORKOUT LIST
-      ========================== */}
-
       <div className="mt-6">
         {sortedWorkouts.length > 0 ? (
           <div className="space-y-4">
@@ -157,10 +127,6 @@ export default function MyPlanPage() {
             ))}
           </div>
         ) : (
-          /* =====================
-             EMPTY STATE
-          ====================== */
-
           <div className="flex min-h-[290px] flex-col items-center justify-center rounded-xl border border-dashed border-[#292D35] text-center">
             <h2 className="text-[18px] font-bold uppercase text-white">
               Nothing Here Yet
@@ -182,10 +148,6 @@ export default function MyPlanPage() {
     </main>
   );
 }
-
-// =============================
-// METRIC COMPONENT
-// =============================
 
 function Metric({
   label,
